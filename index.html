@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>Grace’s Vibrant Birthday Odyssey</title>
@@ -8,7 +7,6 @@
     * {
       box-sizing: border-box;
     }
-
     html, body {
       margin: 0;
       padding: 0;
@@ -16,20 +14,17 @@
       font-family: 'Arial', sans-serif;
       color: white;
     }
-
     body {
       text-align: center;
       background: linear-gradient(180deg, #ff8fd6, #b66dff, #ffd700);
       background-size: 400% 400%;
       animation: gradientShift 15s ease infinite;
     }
-
     @keyframes gradientShift {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
-
     /* Loader */
     #loader {
       position: fixed;
@@ -44,7 +39,6 @@
       justify-content: center;
       flex-direction: column;
     }
-
     .plant {
       width: 20px;
       height: 200px;
@@ -53,55 +47,45 @@
       border-radius: 10px;
       animation: growPlant 4s ease-in-out forwards;
     }
-
     @keyframes growPlant {
       0% { height: 0; }
       100% { height: 200px; }
     }
-
     .leaf {
       position: absolute;
       font-size: 2.2em;
       animation: floatLeaf 3s ease-in-out infinite;
     }
-
     .leaf1 { top: 30px; left: -25px; }
     .leaf2 { top: 80px; left: 30px; }
     .leaf3 { top: 140px; left: -30px; }
-
     @keyframes floatLeaf {
       0% { transform: translateY(0); opacity: 1; }
       50% { transform: translateY(-10px); }
       100% { transform: translateY(0); opacity: 1; }
     }
-
     .loader-text {
       color: #fff;
       margin-top: 30px;
       font-size: 2em;
       font-weight: bold;
     }
-
     h1 {
       font-family: 'Pacifico', cursive;
       font-size: 3.5em;
       text-shadow: 2px 2px 10px #ff00ff;
     }
-
     h2 {
       font-size: 2.5em;
       color: gold;
     }
-
     #countdown {
       font-size: 1.5em;
     }
-
     .mail {
       font-size: 2em;
       cursor: pointer;
     }
-
     .message {
       display: none;
       font-size: 1.2em;
@@ -111,8 +95,6 @@
       margin: 10px auto;
       max-width: 600px;
     }
-
-    /* Grid of Images */
     .image-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -120,13 +102,11 @@
       margin: 40px auto;
       max-width: 900px;
     }
-
     .image-grid img {
       width: 100%;
       border-radius: 10px;
       box-shadow: 0 8px 16px rgba(0,0,0,0.2);
     }
-
     .heart {
       position: fixed;
       top: -50px;
@@ -134,15 +114,12 @@
       animation: fall 5s linear infinite;
       pointer-events: none;
     }
-
     @keyframes fall {
       to {
         transform: translateY(110vh);
         opacity: 0;
       }
     }
-
-    /* Popup */
     .popup {
       display: none;
       position: fixed;
@@ -157,7 +134,6 @@
       z-index: 10000;
       max-width: 90%;
     }
-
     .popup .close {
       position: absolute;
       top: 10px;
@@ -166,15 +142,12 @@
       color: #900;
       cursor: pointer;
     }
-
-    /* Balloons animation */
     .balloon {
       position: absolute;
       bottom: -100px;
       font-size: 2.5em;
       animation: rise 8s linear infinite;
     }
-
     @keyframes rise {
       0% {
         bottom: -100px;
@@ -188,8 +161,6 @@
         opacity: 0;
       }
     }
-
-    /* Tree animation (no image) */
     .animated-tree {
       margin: 40px auto;
       width: 20px;
@@ -198,16 +169,17 @@
       border-radius: 10px;
       animation: growTree 4s ease-in-out forwards;
     }
-
     @keyframes growTree {
       0% { height: 0; }
       100% { height: 150px; }
     }
-
+    @keyframes riseSparkle {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-80px); opacity: 0; }
+    }
     audio {
       display: none;
     }
-
     button {
       padding: 12px 24px;
       font-size: 1.1em;
@@ -221,7 +193,6 @@
   </style>
 </head>
 <body>
-  <!-- Loader -->
   <div id="loader">
     <div class="plant">
       <div class="leaf leaf1">💖</div>
@@ -230,21 +201,14 @@
     </div>
     <p class="loader-text">Growing your surprise... 🌱</p>
   </div>
-
-  <!-- Audio -->
   <audio id="bgMusic" autoplay loop>
     <source src="audiocut.mp3" type="audio/mp3">
   </audio>
-
   <h1>HAPPY BIRTHDAY</h1>
   <h2>GRACE!</h2>
   <p>Welcome to your vibrant odyssey, crafted with love...</p>
   <div id="countdown">Loading...</div>
-
-  <!-- Tree Animation -->
   <div class="animated-tree"></div>
-
-  <!-- Image Grid -->
   <div class="image-grid">
     <img src="grace1.jpg" alt="Pic 1">
     <img src="grace2.jpg" alt="Pic 2">
@@ -253,28 +217,22 @@
     <img src="bmw.jpg" alt="BMW">
     <img src="unnamed.png" alt="Art">
   </div>
-
   <p>Click the mail to unfold our story!</p>
   <div class="mail">✉️</div>
-
   <div class="message">Grace, you paint my days with joy—let’s cruise this life together!</div>
   <div class="message">I’ve learned we’re equals—will you be my partner, my love, my home?</div>
   <div class="message">If we hit a bump, we’ll part as friends, I promise.</div>
   <div class="message">Your ‘yes’ yesterday? My heart’s still dancing—happy birthday, my muse!</div>
-
   <p id="closing" style="display: none;">Grace, you’re my light, my strength, and my smile. Here’s to us, always. ❤️</p>
   <button onclick="window.location='https://your-gift-link.com'">Your Gift Awaits!</button>
-
-  <!-- Reveal Popup -->
   <p><span class="mail" onclick="revealHeart()">🌸 Click here to reveal</span></p>
+  <p id="quote" style="font-size: 1.2em; color: #fff8f0; font-style: italic; display: none;">"In your smile I see something more beautiful than stars." — Beth Revis</p>
+  <div id="sparkle-zone" style="position: relative; height: 80px; display: none;"></div>
   <div class="popup" id="popup">
     <div class="close" onclick="closePopup()">❌</div>
-    <p id="typing-text">Grace, you are the poetry in my every breath, the beat in my heart. 💕</p>
+    <p id="typing-text"></p>
   </div>
-
-  <!-- Balloon animation zone -->
   <script>
-    // Hearts
     function createHeart() {
       const heart = document.createElement("div");
       heart.className = "heart";
@@ -284,82 +242,103 @@
       document.body.appendChild(heart);
       setTimeout(() => heart.remove(), 5000);
     }
-    setInterval(createHeart, 700);
+    setInterval(createHeart, 700);const countdownElement = document.getElementById('countdown');
+const countDownDate = new Date("July 22, 2025 00:00:00").getTime();
+const timer = setInterval(() => {
+  const now = new Date().getTime();
+  const distance = countDownDate - now;
+  if (distance < 0) {
+    clearInterval(timer);
+    countdownElement.innerHTML = "🎉 Happy Birthday, Grace—Let’s Begin!";
+    document.getElementById("closing").style.display = "block";
+    confetti();
+    startBalloons();
+  } else {
+    const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const s = Math.floor((distance % (1000 * 60)) / 1000);
+    countdownElement.innerHTML = `${d}d ${h}h ${m}m ${s}s`;
+  }
+}, 1000);
 
-    // Countdown
-    const countdownElement = document.getElementById('countdown');
-    const countDownDate = new Date("July 22, 2025 00:00:00").getTime();
-    const timer = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = countDownDate - now;
-      if (distance < 0) {
-        clearInterval(timer);
-        countdownElement.innerHTML = "🎉 Happy Birthday, Grace—Let’s Begin!";
-        document.getElementById("closing").style.display = "block";
-        confetti();
-        startBalloons();
-      } else {
-        const d = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const s = Math.floor((distance % (1000 * 60)) / 1000);
-        countdownElement.innerHTML = `${d}d ${h}h ${m}m ${s}s`;
-      }
-    }, 1000);
+let msgIndex = 0;
+const messages = document.querySelectorAll('.message');
+document.querySelector('.mail').addEventListener('click', function () {
+  if (msgIndex < messages.length) {
+    messages[msgIndex].style.display = 'block';
+    msgIndex++;
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+  }
+});
 
-    // Messages
-    let msgIndex = 0;
-    const messages = document.querySelectorAll('.message');
-    document.querySelector('.mail').addEventListener('click', function () {
-      if (msgIndex < messages.length) {
-        messages[msgIndex].style.display = 'block';
-        msgIndex++;
-        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-      }
-    });
+function confetti() {
+  for (let i = 0; i < 100; i++) {
+    const confetto = document.createElement("div");
+    confetto.textContent = "🎊";
+    confetto.style.position = "fixed";
+    confetto.style.left = Math.random() * 100 + "vw";
+    confetto.style.top = "-20px";
+    confetto.style.fontSize = "1.5em";
+    confetto.style.animation = "fall 3s linear forwards";
+    document.body.appendChild(confetto);
+    setTimeout(() => confetto.remove(), 3000);
+  }
+}
 
-    // Confetti
-    function confetti() {
-      for (let i = 0; i < 100; i++) {
-        const confetto = document.createElement("div");
-        confetto.textContent = "🎊";
-        confetto.style.position = "fixed";
-        confetto.style.left = Math.random() * 100 + "vw";
-        confetto.style.top = "-20px";
-        confetto.style.fontSize = "1.5em";
-        confetto.style.animation = "fall 3s linear forwards";
-        document.body.appendChild(confetto);
-        setTimeout(() => confetto.remove(), 3000);
-      }
-    }
+function typeText(text, i) {
+  if (i < text.length) {
+    document.getElementById("typing-text").innerHTML += text.charAt(i);
+    setTimeout(() => typeText(text, i + 1), 50);
+  }
+}
 
-    // Popup
-    function revealHeart() {
-      document.getElementById("popup").style.display = "block";
-    }
-    function closePopup() {
-      document.getElementById("popup").style.display = "none";
-    }
+function revealHeart() {
+  document.getElementById("popup").style.display = "block";
+  document.getElementById("typing-text").innerHTML = "";
+  typeText("Grace, you are the poetry in my every breath, the beat in my heart. 💕", 0);
+  document.getElementById("quote").style.display = "block";
+  document.getElementById("sparkle-zone").style.display = "block";
+  startSparkles();
+}
 
-    // Balloons after gift
-    function startBalloons() {
-      for (let i = 0; i < 30; i++) {
-        const balloon = document.createElement('div');
-        balloon.className = 'balloon';
-        balloon.textContent = "🎈";
-        balloon.style.left = Math.random() * 100 + "vw";
-        balloon.style.animationDuration = (Math.random() * 4 + 4) + "s";
-        document.body.appendChild(balloon);
-        setTimeout(() => balloon.remove(), 8000);
-      }
-    }
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+}
 
-    // Loader
-    window.onload = function () {
-      setTimeout(() => {
-        document.getElementById("loader").style.display = "none";
-      }, 2500);
-    };
+function startSparkles() {
+  for (let i = 0; i < 30; i++) {
+    const sparkle = document.createElement("div");
+    sparkle.textContent = "✨";
+    sparkle.style.position = "absolute";
+    sparkle.style.left = Math.random() * 100 + "%";
+    sparkle.style.bottom = "0";
+    sparkle.style.fontSize = "1.2em";
+    sparkle.style.opacity = "0.8";
+    sparkle.style.animation = `riseSparkle ${Math.random() * 2 + 2}s linear forwards`;
+    document.getElementById("sparkle-zone").appendChild(sparkle);
+    setTimeout(() => sparkle.remove(), 4000);
+  }
+}
+
+function startBalloons() {
+  for (let i = 0; i < 30; i++) {
+    const balloon = document.createElement('div');
+    balloon.className = 'balloon';
+    balloon.textContent = "🎈";
+    balloon.style.left = Math.random() * 100 + "vw";
+    balloon.style.animationDuration = (Math.random() * 4 + 4) + "s";
+    document.body.appendChild(balloon);
+    setTimeout(() => balloon.remove(), 8000);
+  }
+}
+
+window.onload = function () {
+  setTimeout(() => {
+    document.getElementById("loader").style.display = "none";
+  }, 2500);
+};
+
   </script>
 </body>
 </html>
