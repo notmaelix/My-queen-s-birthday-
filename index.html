@@ -1,3 +1,4 @@
+<!-- Entire updated HTML starts here -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,7 +27,6 @@
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
-    /* Loader */
     #loader {
       position: fixed;
       top: 0;
@@ -150,17 +150,9 @@
       animation: rise 8s linear infinite;
     }
     @keyframes rise {
-      0% {
-        bottom: -100px;
-        opacity: 0;
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        bottom: 110%;
-        opacity: 0;
-      }
+      0% { bottom: -100px; opacity: 0; }
+      50% { opacity: 1; }
+      100% { bottom: 110%; opacity: 0; }
     }
     .animated-tree {
       margin: 40px auto;
@@ -190,6 +182,12 @@
       border-radius: 5px;
       margin-top: 20px;
       cursor: pointer;
+    }
+    #revealExtraMessageBtn, #extraMessage {
+      display: none;
+      margin-top: 20px;
+      color: #fff;
+      font-size: 1.2em;
     }
   </style>
 </head>
@@ -233,14 +231,17 @@
     <div class="close" onclick="closePopup()">❌</div>
     <p id="typing-text"></p>
   </div>
+
+  <!-- New button and message -->
+  <button id="revealExtraMessageBtn" onclick="showExtraMessage()">Reveal Special Birthday Message</button>
+  <p id="extraMessage"></p>
+
   <script>
-    // Start sparkles & quote on load
     document.getElementById("quote").style.display = "block";
     document.getElementById("sparkle-zone").style.display = "block";
     startSparkles();
-    setInterval(startSparkles, 5000); // sparkle refresh every 5 seconds
+    setInterval(startSparkles, 5000);
 
-    // Unmute audio on first interaction (if blocked)
     window.addEventListener("click", () => {
       const audio = document.getElementById("bgMusic");
       audio.muted = false;
@@ -268,6 +269,7 @@
         document.getElementById("closing").style.display = "block";
         confetti();
         startBalloons();
+        document.getElementById("revealExtraMessageBtn").style.display = "inline-block";
       } else {
         const d = Math.floor(distance / (1000 * 60 * 60 * 24));
         const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -348,6 +350,13 @@
       }
     }
 
+    function showExtraMessage() {
+      const msg = "Wishing you a very very happy birthday and have a great and healthy life. I was actually gonna do something bigger but then I realized I got to do my job. Tell me the honest review, okay?";
+      document.getElementById("extraMessage").innerText = msg;
+      document.getElementById("extraMessage").style.display = "block";
+      confetti();
+    }
+
     window.onload = function () {
       setTimeout(() => {
         document.getElementById("loader").style.display = "none";
@@ -355,4 +364,4 @@
     };
   </script>
 </body>
-  </html>
+</html>
