@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Grace’s Vibrant Birthday Odyssey</title>
+  <style>
+    body { margin: 0; text-align: center; background: linear-gradient(45deg, pink, purple, gold); color: white; padding: 50px; overflow: hidden; }
+    #loading { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(45deg, pink, purple); display: flex; align-items: center; justify-content: center; font-size: 2em; z-index: 1000; }
+    #heart-bar { width: 0; height: 20px; background: red; position: absolute; bottom: 20px; transition: width 10s linear; clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); }
+    #main { display: none; padding: 50px; }
+    #main.active { display: block; }
+    h1 { font-size: 4em; color: gold; }
+    #countdown { font-size: 2em; color: gold; }
+    .mail { font-size: 2em; cursor: pointer; color: gold; }
+    .message { display: none; font-size: 1.2em; margin: 20px; background: rgba(255, 215, 0, 0.2); padding: 15px; border-radius: 10px; }
+    .sakura-tree { width: 0; height: 0; background: url('https://upload.wikimedia.org/wikipedia/commons/3/3e/Prunus_serrulata_03.jpg') no-repeat center; background-size: contain; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); transition: width 60s, height 60s; }
+    .sakura-tree.grown { width: 300px; height: 400px; }
+    .grace-img { max-width: 200px; margin: 10px; border-radius: 10px; }
+    button { padding: 15px 30px; font-size: 1.2em; background: gold; color: black; border: none; border-radius: 5px; }
+  </style>
+</head>
+<body>
+  <div id="loading">Loading Grace’s Birthday Magic… Hold tight, you cheeky star! 😏
+    <div id="heart-bar"></div>
+  </div>
+  <div id="main">
+    <h1>HAPPY BIRTHDAY GRACE!</h1>
+    <p>Welcome to your vibrant odyssey, crafted with love...</p>
+    <div id="countdown">Loading...</div>
+    <div class="sakura-tree"></div>
+    <img src="https://via.placeholder.com/200x200/grace1" alt="Grace 1" class="grace-img">
+    <img src="https://via.placeholder.com/200x200/grace2" alt="Grace 2" class="grace-img">
+    <p>Click the mail to unfold our story!</p>
+    <div class="mail">✉️</div>
+    <div id="message1" class="message">Grace, you paint my days with joy—let’s cruise this life together!</div>
+    <div id="message2" class="message">I’ve learned we’re equals—will you be my partner, my love, my home?</div>
+    <div id="message3" class="message">If we hit a bump, we’ll part as friends, I promise.</div>
+    <div id="message4" class="message">Your ‘yes’ yesterday? My heart’s still dancing—happy birthday, my muse!</div>
+    <p id="closing" style="display: none;">Grace, you’re my light, my strength, and my smile. Here’s to us, always. ❤️</p>
+    <button onclick="window.location='https://your-gift-link.com'">Your Gift Awaits!</button>
+  </div>
+  <script>
+    window.onload = function() {
+      const heartBar = document.getElementById('heart-bar');
+      if (heartBar) {
+        let width = 0;
+        const interval = setInterval(() => {
+          if (width < 100) {
+            width += 10;
+            heartBar.style.width = width + '%';
+          }
+        }, 1000);
+        setTimeout(() => {
+          clearInterval(interval);
+          document.getElementById('loading').style.display = 'none';
+          document.getElementById('main').classList.add('active');
+          document.querySelector('.sakura-tree').classList.add('grown');
+        }, 10000);
+      }
+
+      const countDownDate = new Date("July 22, 2025 00:00:00 GMT+0530").getTime();
+      const countdownElement = document.getElementById('countdown');
+      if (countdownElement) {
+        const x = setInterval(() => {
+          const now = new Date().getTime();
+          const distance = countDownDate - now;
+          const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+          countdownElement.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+          if (distance < 0) {
+            clearInterval(x);
+            countdownElement.innerHTML = "Happy Birthday, Grace—Let’s Begin!";
+            document.getElementById("closing").style.display = "block";
+          }
+        }, 1000);
+      }
+
+      let messageIndex = 0;
+      const messages = document.getElementsByClassName("message");
+      function showMessages() {
+        if (messageIndex < messages.length) {
+          messages[messageIndex].style.display = "block";
+          messageIndex++;
+          setTimeout(showMessages, 5000);
+        } else {
+          document.getElementById("closing").style.display = "block";
+        }
+      }
+      document.querySelector('.mail').onclick = showMessages;
+    };
+  </script>
+</body>
+</html>
